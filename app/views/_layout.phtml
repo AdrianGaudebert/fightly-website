@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><?php echo A('title', 'My website') ?></title>
+
+        <?php foreach (A('styles', array()) as $style): ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo Atomik::appAsset($style) ?>" />
+        <?php endforeach; ?>
+    </head>
+
+    <body>
+
+        <div id="container">
+            <header>
+                <h1>Fightly</h1>
+                <h2>Free Web Game Engine</h2>
+            </header>
+
+            <ul id="messages">
+                <?php foreach (A('flash:all') as $label => $messages): ?>
+                    <?php foreach ($messages as $message): ?>
+                        <li class="<?php echo $label ?>"><?php echo $message ?></li>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </ul>
+
+            <nav id="menu">
+                <a href="<?php echo Atomik::url(''); ?>">Home</a> -
+                <a href="<?php echo Atomik::url('api'); ?>">API</a> -
+                <a href="<?php echo Atomik::url('#comingsoon'); ?>">Tutorials</a>
+            </nav>
+
+            <div id="main">
+                <?php echo $contentForLayout; ?>
+            </div>
+
+            <footer>
+                <p>2011 - By <a href="http://adrian.gaudebert.fr">Adrian Gaudebert</a> and <a href="http://fightly-dev.lqbs.fr/forum/index.php?p=userlist&g_id=7">fellas</a> - <a href="http://sourceforge.net/p/web-game-engine/git/">Browse sources on SourceForge</a></p>
+            </footer>
+        </div> <!-- end of #container -->
+
+        <?php foreach (A('scripts', array()) as $script): ?>
+        <script type="text/javascript" src="<?php echo Atomik::appAsset($script) ?>"></script>
+        <?php endforeach; ?>
+    </body>
+</html>
