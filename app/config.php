@@ -19,6 +19,7 @@ Atomik::set(array (
     'display_errors' => true,
     'debug' => false,
     'url_rewriting' => true,
+    'base_url' => 'http://fightly.com',
   ),
   'styles' =>
   array (
